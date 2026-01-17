@@ -136,7 +136,7 @@ game_state= 'menu'
 sound_on=False
 has_lost = 0
 win_timer=0
-win_time_limit=3
+win_time_limit=30
 player_won=False
 
 
