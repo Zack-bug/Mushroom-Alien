@@ -136,7 +136,7 @@ game_state= 'menu'
 sound_on=False
 has_lost = 0
 win_timer=0
-win_time_limit=30
+win_time_limit=3
 player_won=False
 
 
@@ -232,7 +232,7 @@ def draw():
         global win_timer
         screen.draw.text(
         "YOU WIN", center=(WIDTH/2,210), fontsize =90, color="green", shadow=(2,2))
-
+        sounds.theme_music.stop()
     elif game_state=='play':
         player.draw()
         spinner.draw()
