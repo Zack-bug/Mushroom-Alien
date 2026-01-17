@@ -136,7 +136,7 @@ game_state= 'menu'
 sound_on=False
 has_lost = 0
 win_timer=0
-win_time_limit=3
+win_time_limit=30
 player_won=False
 
 
@@ -167,7 +167,7 @@ def update():
             sounds.hit.play()
             sounds.hit.set_volume(.4)
         game_state = 'menu'
-
+        sounds.theme_music.stop()
 def on_mouse_down(pos):
     global game_state,sound_on
 
@@ -183,8 +183,10 @@ def on_mouse_down(pos):
         elif sound_button.collidepoint(pos):
             sound_on = not sound_on
             if sound_on:
-                sounds.theme_music.play(-1)
                 sounds.theme_music.set_volume(.4)
+                sounds.click.set_volume(.5)
+                sounds.click.play()
+                sounds.jump.set_volume(1)
             else:
                 sounds.theme_music.set_volume(0)
                 sounds.jump.set_volume(0)
@@ -201,7 +203,7 @@ def reset_game():
     player.movement_Speed=6
 
     spinner.x = -200
-    spinner.speed = 6
+    spinner.speed = 8
     spinner.spawn_timer = 0
     fly.x=WIDTH+200
     fly.speed=8
@@ -209,6 +211,8 @@ def reset_game():
 
     win_timer=0
     has_lost=1
+    if sound_on:
+        sounds.theme_music.play()
 def draw():
 
     global has_lost
