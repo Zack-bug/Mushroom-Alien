@@ -1,2 +1,1 @@
-Hyper-casual surviving game. 
-In this game, you try to jump over the obstacles that are coming from the right and left.
+A hyper-casual survival game where the player jumps over obstacles coming from the right and left
